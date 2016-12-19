@@ -1,3 +1,5 @@
 require_relative "../config/environment.rb"
 
-Scraper.scrape_date_page
+url = Scraper.scrape_date_page.first[:profile_url]
+
+Scraper.scrape_profile_page(url)

@@ -5,7 +5,7 @@ class ActorBirthdayCLI
   end
 
   def run
-    # Greeting, display date.
+    # Greetings, display date.
 
   #  make_actors #from imdb/date
 
@@ -18,7 +18,7 @@ class ActorBirthdayCLI
 
     #ask if user would like to see the list of actors again.
 
-    
+
 
   end
 end
