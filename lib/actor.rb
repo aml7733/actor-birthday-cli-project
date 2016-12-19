@@ -1,13 +1,13 @@
 require_relative "../config/environment.rb"
 
 class Actor
-  attr_accessor :name, :location, :profile_url, :occupations, :bio_intro, :known_for, :trivia_fact
+  attr_accessor :name, :year, :profile_url, :occupations, :bio_intro, :known_for, :trivia_fact
 
   @@all = []
 
   def initialize(attribute_hash)
     @name = attribute_hash[:name]
-    @location = attribute_hash[:location]
+    @year = attribute_hash[:year]
     @profile_url = attribute_hash[:profile_url]
 
     @@all << self
