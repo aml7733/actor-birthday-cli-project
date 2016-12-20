@@ -13,7 +13,7 @@ class Scraper
   def self.scrape_date_page
     html = open("http://www.imdb.com/date")
     doc = Nokogiri::HTML(html)
-    @today = doc.css("div#main h2").text
+    @@today = doc.css("div#main h2").text
     actors = []
 
     actor_xmls = doc.css("div#main ul li")
@@ -32,7 +32,7 @@ class Scraper
     doc = Nokogiri::HTML(html)
 
     bio_text = doc.css("div.name-trivia-bio-text div.inline").text.split.join(" ").strip
-    bio_text = bio_text.slice(0..(bio_text.index(" ...") + 3))
+    bio_text = bio_text.slice(0..(bio_text.index("...") + 2))
 
     known_for_list = []
     known_for_titles = doc.css("div.article div#knownfor div.knownfor-title")
@@ -45,15 +45,11 @@ class Scraper
       known_for_list << tag
     end
 
-    trivia = doc.css("div#dyk-trivia").text.split.join(" ")
-    trivia = trivia.slice(8..(trivia.index(" See more") - 1))
-
     attributes = {
       :occupations => doc.css("div#name-job-categories a").text.split.join(" "),
       :bio_intro => bio_text,
       :known_for => known_for_list,
-      :trivia => trivia
     }
+
   end
-  #self.scrape_profile_page(profile_url) => use open uri to open profile page, use nokogiri return hash of attributes key-value pairs (bio intro paragraph, etc.)
 end

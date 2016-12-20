@@ -1,9 +1,13 @@
 require_relative "../config/environment.rb"
 
 class Actor
-  attr_accessor :name, :year, :profile_url, :occupations, :bio_intro, :known_for, :trivia_fact
+  attr_accessor :name, :year, :profile_url, :occupations, :bio_intro, :known_for
 
   @@all = []
+
+  def self.all
+    @@all
+  end
 
   def initialize(attribute_hash)
     @name = attribute_hash[:name]
@@ -18,9 +22,7 @@ class Actor
   end
 
   def add_attributes(attributes_hash)
-    attributes_hash.each do |attr_name, value|
-      self.attr_name = value
-    end
+    attributes_hash.each_pair { |attr_name, value| self.send(("#{attr_name}="), value) }
   end
 end
 
