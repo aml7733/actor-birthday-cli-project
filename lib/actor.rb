@@ -24,6 +24,21 @@ class Actor
   def add_attributes(attributes_hash)
     attributes_hash.each_pair { |attr_name, value| self.send(("#{attr_name}="), value) }
   end
+
+  def display
+    puts "\n\n\n"
+    puts self.name
+    puts "----------------"
+    puts "Born #{Scraper.today}, #{self.year}"
+    puts "----"
+    puts "Occupations: #{self.occupations}"
+    puts "----"
+    puts "Known for:"
+    self.known_for.each { |sentence| puts "  #{sentence}" }
+    puts "----"
+    puts "Bio Intro:"
+    puts self.bio_intro
+  end
 end
 
 # Want attr_accessor for :name, :location, :year, :profile_url, :occupations, :bio_intro, :known_for, :trivia_fact

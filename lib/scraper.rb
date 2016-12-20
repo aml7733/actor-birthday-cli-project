@@ -48,7 +48,7 @@ class Scraper
     attributes = {
       :occupations => doc.css("div#name-job-categories a").text.split.join(" "),
       :bio_intro => bio_text,
-      :known_for => known_for_list,
+      :known_for => known_for_list
     }
 
   end
