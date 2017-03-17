@@ -6,7 +6,7 @@
 
 ##Install instructions
   Clone this repository.
-  Fom the terminal, in the actor-birthday-cli-project directory, run "bundle install".
+  From the terminal, in the actor-birthday-cli-project directory, run "bundle install".
   When that completes, enter ruby bin/run.rb to start the program.
 
 ##License
