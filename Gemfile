@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
 gem 'pry'
-gem 'nokogiri', '1.6.8.1'
+gem 'nokogiri', '>= 1.10.4'
 gem 'rspec'
+gem 'byebug'

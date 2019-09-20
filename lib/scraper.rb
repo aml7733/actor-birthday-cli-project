@@ -13,7 +13,8 @@ class Scraper
   def self.scrape_date_page
     html = open("http://www.imdb.com/date")
     doc = Nokogiri::HTML(html)
-    @@today = doc.css("div#main h2").text
+    # they completely redesigned the css for the imdb date page, need to re-do scraper
+    @@today = doc.css("div#main h1").text.split[4]
     actors = []
 
     actor_xmls = doc.css("div#main ul li")
